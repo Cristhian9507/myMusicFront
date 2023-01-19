@@ -1,0 +1,16 @@
+.dropdown-menu {
+  cursor: pointer;
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .dropdown-menu {
+    position: relative;
+    left: -100px;
+  }
+
+  #formMenu {
+    width: 50%;
+  }
+
+}

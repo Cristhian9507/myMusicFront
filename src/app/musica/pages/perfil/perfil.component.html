@@ -1,0 +1,27 @@
+<div class="container-fluid">
+
+
+
+  <div style="padding-top: 8rem;">
+    <div class="card mx-auto" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Usuario</h5>
+        <p class="card-text">Ingrese su nombre de Usuario</p>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">@</span>
+          </div>
+          <input [(ngModel)]="usuario" type="text" class="form-control" placeholder="usuario" aria-label="usuario"
+            aria-describedby="basic-addon1">
+        </div>
+        <div class="text-center">
+          <a class="btn btn-primary" (click)="guardarUsuario()">Go</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>

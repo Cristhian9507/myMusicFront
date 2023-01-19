@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Mi Música</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="d-flex" id="formMenu" role="search">
+        <input [(ngModel)]="termino" [ngModelOptions]="{standalone: true}" class="form-control me-2" type="search"
+          placeholder="Buscar..." aria-label="Search">
+        <button class="btn btn-outline-primary" (click)="buscar()">Buscar</button>
+      </form>
+      <div id="spacer" style="width: 50%;"></div>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{usuario}}
+          </a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="perfiles" class="dropdown-item">Cambiar Usuario</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-9">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Fav</th>
+              <th scope="col">Canción</th>
+              <th scope="col">Album</th>
+              <th scope="col">Preview</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Fecha de lanzamiento</th>
+              <th scope="col">URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="canciones.length==0">
+              <td colspan="7">
+                <div class="text-center">Sin Registros...</div>
+              </td>
+            </tr>
+            <tr *ngFor="let cancion of canciones">
+              <td><i (click)="agergarFav(cancion)" class="bi bi-star"></i></td>
+              <td>{{cancion.nombre_tema}}</td>
+              <td>{{cancion.nombre_album}}</td>
+              <td><audio [src]="cancion.preview_url" type="audio/x-m4a" controls></audio> </td>
+              <td>{{cancion.precio.valor}} {{cancion.precio.moneda}}</td>
+              <td>{{cancion.fecha_lanzamiento | date: 'dd/MM/yyyy'}}</td>
+              <td>{{cancion.preview_url}} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Favoritos
+        </div>
+        <ul class="list-group list-group-flush">
+          <li *ngIf="favoritos.length==0" class="list-group-item">Sin favoritos...</li>
+          <li *ngFor="let fav of favoritos" class="list-group-item">Canción: {{fav.nombre_banda}} - {{fav.cancion_id}}
+            Puntuación: {{fav.ranking}}/5</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
