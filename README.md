@@ -1,27 +1,56 @@
-# MyMusicFront
+# myMusic
+Uno de los mejores aplicativos para buscar tus canciones favoritas en iTunes y guardar todas aquellas que te hacen feliz.
+Simple de usar, solo necesitas un usuario y listo.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+## Tecnologías
 
-## Development server
+- Angular v15.0.4
+- Docker v20.10
+- Docker-compose v1.29.2
+- Redis v
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Instalación en docker
+Entrar en la carpeta del proyecto clonado y ejecutar los siguientes comandos:
+- docker-compose up -d
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+- El puerto 80 deberá estar disponible para obtener el proyecto ejecutando correctamente
+```
+## Ejecutar el aplicativo
 
-## Build
+Una vez configurado, el aplicativo estará ejecutando en: http://127.0.0.1. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usabilidad
 
-## Running unit tests
+Debe de ingresar cualquier usuario y dar clic en Go. Posteriormente encontrará una interfaz para buscar canciones por nombre de banda y en la parte lateral derecha los favoritos guardados en cache redis (1 hora).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Al escribir el nombre de una banda, el sistema traerá todos las canciones que coincidan con la búsqueda y en la parte lateral izquierda encontrará un icono de estrella, este servirá para añadir o eliminar de favoritos.
 
-## Running end-to-end tests
+Podrá cambiar de usuario las veces que desee dando clic en el nombre que se encuentra en la parte superior derecha y posteriormente en cambiar de usuario. El sistema pedirá de nuevo el nombre del usuario.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Instalación en máquina
+```
+- Configurar el archivo .env con los mismos datos que se encuentran en .env.example
+```
+En caso de que no se tenga docker instalado, se puede instalar el aplicativo directamente en la máquina.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Entrar en la carpeta del proyecto clonado y ejecutar los siguientes comandos en una consola:
+- npm install
+- ng serve
+
+```
+- El puerto 4200 deberá estar disponible para obtener el proyecto ejecutando correctamente
+```
+## Ejecutar el aplicativo
+
+Una vez configurado, el aplicativo estará ejecutando en: http://127.0.0.1:4200. 
+
+## Usabilidad
+
+Debe de ingresar cualquier usuario y dar clic en Go. Posteriormente encontrará una interfaz para buscar canciones por nombre de banda y en la parte lateral derecha los favoritos guardados en cache redis (1 hora).
+
+Al escribir el nombre de una banda, el sistema traerá todos las canciones que coincidan con la búsqueda y en la parte lateral izquierda encontrará un icono de estrella, este servirá para añadir o eliminar de favoritos.
+
+Podrá cambiar de usuario las veces que desee dando clic en el nombre que se encuentra en la parte superior derecha y posteriormente en cambiar de usuario. El sistema pedirá de nuevo el nombre del usuario.
