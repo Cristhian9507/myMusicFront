@@ -48,12 +48,13 @@
                 <div class="text-center">Sin Registros...</div>
               </td>
             </tr>
-            <tr *ngFor="let cancion of canciones">
-              <td><i (click)="agergarFav(cancion)" class="bi bi-star"></i></td>
+            <tr *ngFor="let cancion of canciones; let i = index">
+              <td><i (click)="agergarFav(cancion)" [ngClass]="isStarreds[i] ? 'bi bi-star-fill' : 'bi bi-star'"></i>
+              </td>
               <td>{{cancion.nombre_tema}}</td>
               <td>{{cancion.nombre_album}}</td>
               <td><audio [src]="cancion.preview_url" type="audio/x-m4a" controls></audio> </td>
-              <td>{{cancion.precio.valor}} {{cancion.precio.moneda}}</td>
+              <td>${{cancion.precio.valor}} {{cancion.precio.moneda}}</td>
               <td>{{cancion.fecha_lanzamiento | date: 'dd/MM/yyyy'}}</td>
               <td>{{cancion.preview_url}} </td>
             </tr>

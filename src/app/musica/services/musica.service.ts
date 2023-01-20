@@ -29,4 +29,9 @@ export class MusicaService {
     const url = `${this.baseUrl}/favoritos`;
     return this.http.post<Favorito>(url, favorito);
   }
+
+  removeFav(usuario: string, cancion_id: number): Observable<Favorito> {
+    const url = `${this.baseUrl}/favoritos/${usuario}/cancion/${cancion_id}`;
+    return this.http.delete<Favorito>(url);
+  }
 }
